@@ -1,0 +1,150 @@
+{
+  "date": "2026-04-30",
+  "model_accuracy": 70.6,
+  "predictions": [
+    {
+      "hour": 0,
+      "da_price": 412,
+      "direction": "上涨",
+      "confidence": 54
+    },
+    {
+      "hour": 1,
+      "da_price": 401,
+      "direction": "下跌",
+      "confidence": 56
+    },
+    {
+      "hour": 2,
+      "da_price": 361,
+      "direction": "下跌",
+      "confidence": 65
+    },
+    {
+      "hour": 3,
+      "da_price": 336,
+      "direction": "下跌",
+      "confidence": 71
+    },
+    {
+      "hour": 4,
+      "da_price": 320,
+      "direction": "下跌",
+      "confidence": 70
+    },
+    {
+      "hour": 5,
+      "da_price": 321,
+      "direction": "下跌",
+      "confidence": 52
+    },
+    {
+      "hour": 6,
+      "da_price": 404,
+      "direction": "下跌",
+      "confidence": 63
+    },
+    {
+      "hour": 7,
+      "da_price": 420,
+      "direction": "下跌",
+      "confidence": 58
+    },
+    {
+      "hour": 8,
+      "da_price": 367,
+      "direction": "下跌",
+      "confidence": 55
+    },
+    {
+      "hour": 9,
+      "da_price": 314,
+      "direction": "下跌",
+      "confidence": 55
+    },
+    {
+      "hour": 10,
+      "da_price": 269,
+      "direction": "下跌",
+      "confidence": 55
+    },
+    {
+      "hour": 11,
+      "da_price": 280,
+      "direction": "上涨",
+      "confidence": 58
+    },
+    {
+      "hour": 12,
+      "da_price": 259,
+      "direction": "上涨",
+      "confidence": 61
+    },
+    {
+      "hour": 13,
+      "da_price": 328,
+      "direction": "上涨",
+      "confidence": 58
+    },
+    {
+      "hour": 14,
+      "da_price": 204,
+      "direction": "上涨",
+      "confidence": 54
+    },
+    {
+      "hour": 15,
+      "da_price": 283,
+      "direction": "下跌",
+      "confidence": 59
+    },
+    {
+      "hour": 16,
+      "da_price": 342,
+      "direction": "下跌",
+      "confidence": 62
+    },
+    {
+      "hour": 17,
+      "da_price": 415,
+      "direction": "下跌",
+      "confidence": 64
+    },
+    {
+      "hour": 18,
+      "da_price": 447,
+      "direction": "下跌",
+      "confidence": 66
+    },
+    {
+      "hour": 19,
+      "da_price": 461,
+      "direction": "下跌",
+      "confidence": 72
+    },
+    {
+      "hour": 20,
+      "da_price": 449,
+      "direction": "下跌",
+      "confidence": 74
+    },
+    {
+      "hour": 21,
+      "da_price": 446,
+      "direction": "下跌",
+      "confidence": 73
+    },
+    {
+      "hour": 22,
+      "da_price": 416,
+      "direction": "下跌",
+      "confidence": 71
+    },
+    {
+      "hour": 23,
+      "da_price": 377,
+      "direction": "上涨",
+      "confidence": 56
+    }
+  ]
+}
