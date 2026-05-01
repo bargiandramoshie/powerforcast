@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-from datetime import datetime
+from datetime import datetime, timedelta
 import requests
 import warnings
 warnings.filterwarnings('ignore')
@@ -13,17 +13,21 @@ st.title("⚡ 贵州电力市场价差预测系统")
 st.caption(f"最后更新: {datetime.now().strftime('%Y-%m-%d %H:%M')}")
 
 # ============================================================
-# 侧边栏
+# 侧边栏 - 简化版，避免日期问题
 # ============================================================
 with st.sidebar:
     st.header("📅 查询设置")
     
-    date_range = pd.date_range('2026-03-01', '2026-04-30', freq='D')
+    # 手动定义可选日期
+    date_options = [
+        '2026-04-28', '2026-04-29', '2026-04-30', 
+        '2026-05-01', '2026-05-02', '2026-05-03'
+    ]
+    
     selected_date = st.selectbox(
         "选择预测日期",
-        options=date_range,
-        format="YYYY-MM-DD",
-        index=len(date_range) - 1
+        options=date_options,
+        index=2  # 默认选中 2026-04-30
     )
     
     st.markdown("---")
@@ -42,26 +46,32 @@ try:
     if response.status_code == 200:
         st.components.v1.html(response.text, height=550)
     else:
-        st.info("回测图表生成中，请先运行Kaggle Cell 2")
+        st.info("回测图表加载中...")
 except:
-    st.info("正在生成回测图表...")
+    st.info("正在加载回测图表")
 
 # ============================================================
 # 图2：根据选择的日期显示对应的预测图
 # ============================================================
-st.header(f"📊 {selected_date.strftime('%Y-%m-%d')} 电价预测")
+st.header(f"📊 {selected_date} 电价预测")
 
 # 根据选择的日期构建URL
-prediction_url = f"https://raw.githubusercontent.com/bargiandramoshie/powerforcast/main/reports/prediction_{selected_date.strftime('%Y-%m-%d')}.html"
+prediction_url = f"https://raw.githubusercontent.com/bargiandramoshie/powerforcast/main/reports/prediction_{selected_date}.html"
 
 try:
     response = requests.get(prediction_url)
     if response.status_code == 200:
         st.components.v1.html(response.text, height=550)
     else:
-        # 如果该日期的文件不存在，显示提示
-        st.info(f"暂无 {selected_date.strftime('%Y-%m-%d')} 的预测数据，请在Kaggle中生成")
-except:
-    st.info("预测数据加载中...")
+        st.info(f"📌 暂无 {selected_date} 的预测数据")
+        st.markdown(f"""
+        **请在 Kaggle 中运行 Cell 2 生成该日期的预测图：**
+        
+        1. 修改 Cell 2 中的 `TARGET_DATE = '{selected_date}'`
+        2. 重新运行 Cell 2
+        3. 运行 Cell 3 上传到 GitHub
+        """)
+except Exception as e:
+    st.info(f"预测数据加载中...")
 
 st.caption("⚡ 数据来源：贵州电力市场 | 模型准确率 75.3%")
